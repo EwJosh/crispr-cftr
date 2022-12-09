@@ -63,11 +63,16 @@ def main():
 
     file_type = 'fasta' # either 'fasta' or 'gb' (GenBank)    ... not sure which we want yet
 
-    handle = Entrez.efetch(db = 'nuccore', id='NC_000007.14', rettype='fasta')
-    chromosome = SeqIO.read(handle, format='fasta')
+    handle = Entrez.efetch(db = 'nuccore', id='NC_000007.14', rettype=file_type)
+    chromosome = SeqIO.read(handle, format=file_type)
     handle.close()
-    print('chromosome.id', chromosome.id)
-    print('chromosome.seq:', chromosome)
+    # chromosome is of the Seq class from Biopython
+    # https://biopython.org/wiki/Seq
+
+    ## Don't print chomosome.seq. It's insanely way too long.
+    # print('chromosome.id', chromosome.id)
+    # print('chromosome.seq:', chromosome.seq)
+    print('chromosome seven:', chromosome)
 
 
     # 3) Score each gRNA
