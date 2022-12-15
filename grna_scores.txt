@@ -1,0 +1,200 @@
+
+-------------------------------------
+sRNA Sequence: CAGGAAACCAAGTCCACAGA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 8.77/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 12.1/30.0
+
+
+-------------------------------------
+sRNA Sequence: GGTGGAATCACACTGAGTGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 9.65/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 14.65/30.0
+
+
+-------------------------------------
+sRNA Sequence: TTGTCAGCAGAATCAACAGA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 12.02/30.0
+
+
+-------------------------------------
+sRNA Sequence: GTGAGAAATTACTGAAGAAG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 6.14/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 9.47/30.0
+
+
+-------------------------------------
+sRNA Sequence: AGAACTGAAACTGACTCGGA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.89/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 11.22/30.0
+
+
+-------------------------------------
+sRNA Sequence: AGAAAGAGGACAGTTGTTGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.89/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 11.22/30.0
+
+
+-------------------------------------
+sRNA Sequence: GAAAGGATACAGACAGCGCC
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 9.65/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 12.98/30.0
+
+
+-------------------------------------
+sRNA Sequence: AACAATGCAGAATGAGATGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 12.02/30.0
+
+
+-------------------------------------
+sRNA Sequence: GAAGGTGGAATCACACTGAG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 8.77/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 13.77/30.0
+
+
+-------------------------------------
+sRNA Sequence: CTATGACCCGGATAACAAGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 8.77/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 12.1/30.0
+
+
+-------------------------------------
+sRNA Sequence: GTTGCTGGATCCACTGGAGC
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 9.47/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 14.47/30.0
+
+
+-------------------------------------
+sRNA Sequence: CAGAACAATGCAGAATGAGA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 12.02/30.0
+
+
+-------------------------------------
+sRNA Sequence: GAGGGTAAAATTAAGCACAG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 2.5/10.0
+==> Assessment Score: 9.52/30.0
+
+
+-------------------------------------
+sRNA Sequence: GTGTCCTCACAATAAAGAGA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 10.35/30.0
+
+
+-------------------------------------
+sRNA Sequence: GAATGTAACAGCCTTCTGGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 8.77/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 12.1/30.0
+
+
+-------------------------------------
+sRNA Sequence: AAAGAACCCTGAGAAGAAGA
+
+Scoring Metrics:
+	Position Score: 0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 10.35/30.0
+
+
+-------------------------------------
+sRNA Sequence: TGCAAGTGGCACTCCTCATG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 9.65/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 14.65/30.0
+
+
+-------------------------------------
+sRNA Sequence: GATAGAAAGAGGACAGTTGT
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.02/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 10.35/30.0
+
+
+-------------------------------------
+sRNA Sequence: AATATAGTTCTTGGAGAAGG
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 6.14/10.0
+	Repetitive Base Score : 5.0/10.0
+==> Assessment Score: 11.14/30.0
+
+
+-------------------------------------
+sRNA Sequence: ATACTGCTGGGAAGAAGCAA
+
+Scoring Metrics:
+	Position Score: 0.0/10.0
+	GC Content Score: 7.89/10.0
+	Repetitive Base Score : 3.33/10.0
+==> Assessment Score: 11.22/30.0
+
