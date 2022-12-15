@@ -72,7 +72,7 @@ def off_target_sites_found(grna, genome):
 # Function to assess the quality of a gRNA using the metrics in the CRISPR-CAS9 slide deck
 def quality_of_grna(grna):
     # Check the length of the gRNA
-    if len(grna) >= 20:
+    if len(grna) < 20:
         print('Invalid: gRNA must be 20 or more nucleotides.')
         return False
 
