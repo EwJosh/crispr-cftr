@@ -35,37 +35,26 @@ MM/DD/22:
 
 from Bio import Entrez
 from Bio import SeqIO
-# import pandas as pd
-
-
-# Function to check for off-target sites in a gRNA sequence
-def off_target_sites_found(grna, genome):
-    # Loop through every substring of the same length as the gRNA in the reference genome
-    for i in range(len(genome) - len(grna) + 1):
-        substring = genome[i:i + len(grna)]
-        if grna == substring:
-            return True
-
-    return False
 
 
 # Function to assess the quality of a gRNA using the metrics in the CRISPR-CAS9 slide deck
 def quality_of_grna(grna):
     # Check the length of the gRNA
     if len(grna) < 20:
-        print('Invalid: gRNA must be 20 or more nucleotides.')
+        print('gRNA must be 20 or more nucleotides.')
         return False
 
     # Check the PAM sequence for C's and T's
     pam_sequence = grna[-3:]
     if 'C' in pam_sequence or 'T' in pam_sequence:
-        print('Invalid: pam sequnece contains C or T')
+        print('pam sequnece contains C or T')
         return False
 
     # Check for GC content
-    gc_content = calculate_gc_content(grna)
-    if gc_content < 0.3 or gc_content > 0.7:
-        print('Invalid: gRNA has GC content outside the acceptable range 30% - 70%.')
+    gc_count = grna.count('G') + grna.count('C')
+    gc_content_percent = gc_count / len(grna)
+    if gc_content_percent < 0.3 or gc_content_percent > 0.7:
+        print('gRNA has GC content outside the acceptable range 30% - 70%.')
         return False
 
     return True
@@ -132,7 +121,7 @@ def calculate_gc_content(grna_seqs):
 
 
 # Position-specific sequence
-# Count the number of 'C' and 'T' on the last 10 positions and score it
+# Count the number of 'C' and 'T' on the last 10 positions and score it (the more C&T the lower the score)
 def score_position(grna_seqs):
     position_scores = {}
 
@@ -217,22 +206,25 @@ def main():
 
     file_type = 'fasta' # either 'fasta' or 'gb' (GenBank)    ... not sure which we want yet
 
-    # handle = Entrez.efetch(db = 'nuccore', id='NC_000007.14', rettype=file_type)
-    # chromosome = SeqIO.read(handle, format=file_type)
-    # handle.close()
+    handle = Entrez.efetch(db = 'nuccore', id='NC_000007.14', rettype=file_type)
+    chromosome = SeqIO.read(handle, format=file_type)
+    handle.close()
     # chromosome is of the Seq class from Biopython
     # https://biopython.org/wiki/Seq
 
     ## Don't print chomosome.seq. It's insanely way too long.
     # print('chromosome.id', chromosome.id)
     # print('chromosome.seq:', chromosome.seq)
-    # print('chromosome seven:', chromosome)
+    print('chromosome seven:', chromosome)
 
 
     # 3) Score each gRNA
 
+    for grna in grna_seqs:
+        if not quality_of_grna(grna):
+            print("gRNA has bad quality: " + grna)
+
     score(grna_seqs)
-    
 
     print('+===  END  ===+')
 
