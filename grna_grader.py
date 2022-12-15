@@ -15,8 +15,8 @@ AUTHOR: Edward Josh Hermano, Moritz Pistauer
 
 
 ========================== MODIFICATION HISTORY ==============================
-MM/DD/22:
-    MOD:     XXX
+12/08/22:
+    MOD:     Initialized file and implemented functions to fetch txt grna sequences and chromosome sequence.
     AUTHOR:  Edward Josh Hermano
     COMMENT: No comments
 
@@ -32,18 +32,32 @@ from Bio import Entrez
 from Bio import SeqIO
 import xmltodict
 
-
+# Function to check for five (or more) contiguous repetitive bases
+# grna = grna sequence to check
+# Returns True if there exists any of the following subsequences in the given grna sequence
+#   'AAAAA', 'TTTTT', 'GGGGG', 'CCCCC'
 def check_for_repetitive_bases(grna):
-    base_counts = {"A": 0, "C": 0, "G": 0, "U": 0}
+    # Use find() method to see if any of these substrings exist in our grna
+    repeat_a = grna.find('AAAAA')
+    repeat_t = grna.find('TTTTT')
+    repeat_g = grna.find('GGGGG')
+    repeat_c = grna.find('CCCCC')
 
-    for base in grna:
-        base_counts[base] += 1
-
-    for base, count in base_counts.items():
-        if count >= 5:
-            return True
-
-    return False
+    # If all find()s return -1, there are no 5-long contiguous repetitions
+    # So return True. Otherwise return True and print why.
+    if repeat_a == -1 and repeat_t == -1 and repeat_g == -1 and repeat_c== -1:
+        return False
+    else:
+        print("Sequence '", grna, "' has the following contiguously-repetitive base(s):")
+        if repeat_a != -1:
+            print("\t'AAAAA'")
+        if repeat_t != -1:
+            print("\t'TTTTT'")
+        if repeat_g != -1:
+            print("\t'GGGGG'")
+        if repeat_c != -1:
+            print("\t'CCCCC'")
+        return True
 
 
 # Function to calculate the GC content of a gRNA
@@ -55,6 +69,7 @@ def calculate_gc_content(grna):
     gc_content = gc_count / len(grna)
 
     return gc_content
+
 
 # Function to check for off-target sites in a gRNA sequence
 def off_target_sites_found(grna, genome):
@@ -72,11 +87,11 @@ def off_target_sites_found(grna, genome):
 # Function to assess the quality of a gRNA using the metrics in the CRISPR-CAS9 slide deck
 def quality_of_grna(grna):
     # Check the length of the gRNA
-    if len(grna) >= 20:
+    if len(grna) < 20:
         print('Invalid: gRNA must be 20 or more nucleotides.')
         return False
 
-    # Check the PAM sequence for C's and T's
+    # Check the PAM-sequence-adjacent nucleotides for C's and T's
     pam_sequence = grna[-3:]
     if 'C' in pam_sequence or 'T' in pam_sequence:
         print('Invalid: pam sequnece contains C or T')
@@ -101,6 +116,7 @@ def quality_of_grna(grna):
     return True
 
 
+# Reads the txt file named 'grna_sequences.txt' and stores the sequences found.
 def read_grna_file():
     # Read grna file, store only sequences
     seq_reader = open('grna_sequences.txt')
@@ -108,6 +124,8 @@ def read_grna_file():
 
     # NOTE: idk how y'all want the logic on how to format/read the txt file, but this works for the last programming assignment
     
+    # Loop through the txt file and store lines that seem like grna Sequences
+    # Also format sequences to be in uppercase
     for line in seq_reader:
         if line[0:4] == '>Seq':
             continue
@@ -160,9 +178,9 @@ def main():
 
     file_type = 'fasta' # either 'fasta' or 'gb' (GenBank)    ... not sure which we want yet
 
-    handle = Entrez.efetch(db = 'nuccore', id='NC_000007.14', rettype=file_type)
-    chromosome = SeqIO.read(handle, format=file_type)
-    handle.close()
+    chrom_handle = Entrez.efetch(db = 'nuccore', id = 'NC_000007.14', rettype = file_type)
+    chromosome = SeqIO.read(chrom_handle, format=file_type)
+    chrom_handle.close()
     # chromosome is of the Seq class from Biopython
     # https://biopython.org/wiki/Seq
 
@@ -170,6 +188,14 @@ def main():
     # print('chromosome.id', chromosome.id)
     # print('chromosome.seq:', chromosome.seq)
     print('chromosome seven:', chromosome)
+
+    ## Maybe get CFTR gene?
+    # print('Fetching gene sequence for CFTR...')
+    # cftr_handle = Entrez.efetch(db = 'gene', id='NM_000492', retmode='xml')
+    # print("handle:", cftr_handle)
+    # cftr = Entrez.read(cftr_handle)
+    # cftr_handle.close()
+    # print('CFTR:', cftr)
 
 
     # 3) Score each gRNA
