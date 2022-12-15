@@ -155,11 +155,11 @@ def score(grna_seqs):
         for grna in grna_seqs:
             overall_scores[grna] = round(position_scores[grna] + gc_content_scores[grna] + repetitive_base_scores[grna], 2)
             output = f'\n-------------------------------------' \
-                     f'\nsRNA Sequence: {grna}\n\n' \
+                     f'\ngRNA Sequence: {grna}\n\n' \
                      f'Scoring Metrics:\n\tPosition Score: {position_scores[grna]}/10.0\n\t' \
                      f'GC Content Score: {gc_content_scores[grna]}/10.0\n\t' \
                      f'Repetitive Base Score : {repetitive_base_scores[grna]}/10.0\n' \
-                     f'==> Assessment Score: {overall_scores[grna]}/30.0\n\n'
+                     f'==> Total Score: {overall_scores[grna]}/30.0\n\n'
             f.write(output)
     print(f'Results output at: {OUTPUT_FILE}')
     return overall_scores
